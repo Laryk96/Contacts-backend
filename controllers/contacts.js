@@ -13,7 +13,7 @@ const getContactById = async (req, res) => {
 	const result = await contactsApi.getById(contactId)
 
 	if (!result) {
-		throw HttpError(404, 'Not found')
+		throw HttpError(404)
 	}
 
 	res.status(200).json(result)
@@ -31,7 +31,7 @@ const removeContactById = async (req, res) => {
 	const result = await contactsApi.removeContact(contactId)
 
 	if (!result) {
-		throw HttpError(404, 'Not found')
+		throw HttpError(404)
 	}
 
 	res.json({
@@ -46,7 +46,7 @@ const updateContactById = async (req, res) => {
 	const result = await contactsApi.updateContact(contactId, req.body)
 
 	if (!result) {
-		throw HttpError(404, 'Not found')
+		throw HttpError(404)
 	}
 
 	res.json(result)
