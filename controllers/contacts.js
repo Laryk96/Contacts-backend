@@ -8,8 +8,8 @@ const {
 } = require('../service')
 
 const getAllContacts = async (req, res) => {
+	console.log('+++')
 	const result = await getAll()
-
 	res.status(200).json(result)
 }
 

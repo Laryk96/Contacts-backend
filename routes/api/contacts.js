@@ -6,8 +6,8 @@ const {
 	removeContactById,
 	updateContactById,
 } = require('../../controllers/contacts')
-// const { validateBody } = require('../../middlewapres')
-// const { addContact, updateContact } = require('../../schemas')
+const { validateBody } = require('../../middlewapres')
+const { addContact, updateContact } = require('../../schemas')
 
 const router = express.Router()
 
@@ -15,10 +15,10 @@ router.get('/', getAllContacts)
 
 router.get('/:contactId', getContactById)
 
-router.post('/', addNewContact)
-// validateBody(addContact)
+router.post('/', validateBody(addContact), addNewContact)
+
 router.delete('/:contactId', removeContactById)
 
-router.put('/:contactId', updateContactById)
-// validateBody(updateContact)
+router.put('/:contactId', validateBody(updateContact), updateContactById)
+
 module.exports = router
