@@ -24,7 +24,7 @@ const connection = mongoose.connect(DB_HOST, {
 
 connection
 	.then(() => {
-		app.listen(PORT | 3000, function () {
+		app.listen(3000, function () {
 			console.log(`Server running. Use our API on port: ${PORT}`)
 		})
 	})
