@@ -7,7 +7,7 @@ const {
 	updateContactById,
 } = require('../../controllers/contacts')
 const { validateBody } = require('../../middlewapres')
-const { addContact, updateContact } = require('../../schemas')
+const { addContact, updateContact } = require('../../service/schemas/joi')
 
 const router = express.Router()
 
