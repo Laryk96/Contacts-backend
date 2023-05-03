@@ -1,4 +1,5 @@
 const Joi = require('joi')
+const { dataRegExp } = require('../../../helpers')
 
 const schemaAddContact = Joi.object({
 	name: Joi.string().min(3).required(),
@@ -8,7 +9,7 @@ const schemaAddContact = Joi.object({
 			tlds: { allow: ['com', 'net', 'org'] },
 		})
 		.required(),
-	phone: Joi.string().min(6).required(),
+	phone: Joi.string().min(6).pattern(dataRegExp.phone).required(),
 })
 
 module.exports = schemaAddContact

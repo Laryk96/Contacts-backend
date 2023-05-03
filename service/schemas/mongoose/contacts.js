@@ -1,5 +1,5 @@
 const { default: mongoose, Schema } = require('mongoose')
-const { handleMongooseError } = require('../../../helpers')
+const { handleMongooseError, dataRegExp } = require('../../../helpers')
 
 const contactSchema = new Schema(
 	{
@@ -10,20 +10,21 @@ const contactSchema = new Schema(
 		},
 		email: {
 			type: String,
-			minlength: 6,
-			required: [true, 'email is required'],
+			required: true,
 			unique: true,
+			match: dataRegExp.email,
 		},
 		phone: {
 			type: String,
 			required: [true, 'phone is required'],
 			unique: true,
+			match: dataRegExp.phone,
 		},
 	},
 	{ versionKey: false, timestamps: true }
 )
 
 contactSchema.post('save', handleMongooseError)
-const Contacts = mongoose.model('contact', contactSchema)
+const Contacts = mongoose.model('Contact', contactSchema)
 
 module.exports = Contacts

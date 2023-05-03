@@ -9,7 +9,7 @@ const {
 
 const getAllContacts = async (req, res) => {
 	const result = await getAll()
-	console.log('result', result)
+
 	res.status(200).json(result)
 }
 
@@ -37,6 +37,7 @@ const getContactById = async (req, res) => {
 }
 
 const createNewContact = async (req, res) => {
+	console.log(req.body)
 	const result = await createContact(req.body)
 
 	res.json({
